@@ -1,1 +1,1 @@
-web: python -m fzbypass
+web: python3 -m FZBypass
