@@ -18,12 +18,10 @@ async def start_msg(client, message):
     
     <i>A Powerful Elegant Multi Threaded Bot written in Python... which can Bypass Various Shortener Links, Scrape links, and More ... </i>
     
-    <i><b>Bot Started {convert_time(time() - BOT_START)} ago...</b></i>
-
-🛃 <b>Use Me Here :</b> @CyberPunkGrp <i>(Bypass Topic)</i>''',
+    <i><b>🤖 Bot Started {convert_time(time() - BOT_START)} ago...🚀</b></i>''',
         quote=True,
         reply_markup=InlineKeyboardMarkup([
-            [InlineKeyboardButton('🎓 Dev', url='https://t.me/SilentDemonSD'), InlineKeyboardButton('🔍 Deploy Own', url="https://github.com/SilentDemonSD/FZBypassBot")]
+            [InlineKeyboardButton('🐦 Channel', url='https://t.me/errortricks404'), InlineKeyboardButton('🚀 Visit Website', url="https://go.errortricks.eu.org/site")]
             ])
     )
 
@@ -38,9 +36,9 @@ async def bypass_check(client, message):
         txt = message.text
         entities = message.entities
     else:
-        return await message.reply('<i>No Link Provided!</i>')
+        return await message.reply('<i>🙈 No Link Provided!</i>')
     
-    wait_msg = await message.reply("<i>Bypassing...</i>")
+    wait_msg = await message.reply("<i>⚡ Bypassing...</i>")
     start = time()
 
     link, tlinks, no = '', [], 0
@@ -62,16 +60,16 @@ async def bypass_check(client, message):
     parse_data = []
     for result, link in zip(completed_tasks, tlinks):
         if isinstance(result, Exception):
-            bp_link = f"\n┖ <b>Bypass Error:</b> {result}"
+            bp_link = f"\n┖ <b>👾 Bypass Error:</b> {result}"
         elif is_excep_link(link):
             bp_link = result
         elif isinstance(result, list):
             bp_link, ui = "", "┖"
             for ind, lplink in reversed(list(enumerate(result, start=1))):
-                bp_link = f"\n{ui} <b>{ind}x Bypass Link:</b> {lplink}" + bp_link
+                bp_link = f"\n{ui} <b>💠 {ind}x Bypass Link:</b> {lplink}" + bp_link
                 ui = "┠"
         else:
-            bp_link = f"\n┖ <b>Bypass Link:</b> {result}"
+            bp_link = f"\n┖ <b>💠 Bypass Link:</b> {result}"
     
         if is_excep_link(link):
             parse_data.append(f"{bp_link}\n\n━━━━━━━✦✗✦━━━━━━━\n\n")
@@ -114,9 +112,9 @@ async def inline_query(client, query):
             end = time()
             
             if not is_excep_link(link):
-                bp_link = f"┎ <b>Source Link:</b> {link}\n┃\n┖ <b>Bypass Link:</b> {bp_link}"
+                bp_link = f"┎ <b>🌀 Source Link:</b> {link}\n┃\n┖ <b>Bypass Link:</b> {bp_link}"
             answers.append(InlineQueryResultArticle(
-                title="✅️ Bypass Link Success !",
+                title="✅ Bypass Link Success !",
                 input_message_content=InputTextMessageContent(
                     f'{bp_link}\n\n✎﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏\n\n🧭 <b>Took Only <code>{convert_time(end - start)}</code></b>',
                     disable_web_page_preview=True,
@@ -133,12 +131,12 @@ async def inline_query(client, query):
             answers.append(InlineQueryResultArticle(
                 title="❌️ Bypass Link Error !",
                 input_message_content=InputTextMessageContent(
-                    f'┎ <b>Source Link:</b> {link}\n┃\n┖ {bp_link}\n\n✎﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏\n\n🧭 <b>Took Only <code>{convert_time(end - start)}</code></b>',
+                    f'┎ <b>🌀 Source Link:</b> {link}\n┃\n┖ {bp_link}\n\n✎﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏\n\n🧭 <b>Took Only <code>{convert_time(end - start)}</code></b>',
                     disable_web_page_preview=True,
                 ),
-                description=f"Bypass via !bp {link}",
+                description=f"💠 Bypass via !bp {link}",
                 reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton('Bypass Again', switch_inline_query_current_chat="!bp ")]
+                        [InlineKeyboardButton('⚠️ Bypass Again', switch_inline_query_current_chat="!bp ")]
                 ])
             ))    
         
@@ -146,15 +144,15 @@ async def inline_query(client, query):
         answers.append(InlineQueryResultArticle(
                 title="♻️ Bypass Usage: In Line",
                 input_message_content=InputTextMessageContent(
-                    '''<b><i>FZ Bypass Bot!</i></b>
+                    '''<b><i>Error Tricks Bypass Bot!</i></b>
     
-    <i>A Powerful Elegant Multi Threaded Bot written in Python... which can Bypass Various Shortener Links, Scrape links, and More ... </i>
+    <i>A simple Bypass Bot 🚸 for helping others..💝</i>
     
 🎛 <b>Inline Use :</b> !bp [Single Link]''',
                 ),
                 description="Bypass via !bp [link]",
                 reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton("FZ Channel", url="https://t.me/FXTorrentz"),
+                        [InlineKeyboardButton("Error Tricks Channel", url="https://t.me/errortricks404"),
                         InlineKeyboardButton('Try Bypass', switch_inline_query_current_chat="!bp ")]
                 ])
             ))
